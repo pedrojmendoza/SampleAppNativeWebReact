@@ -9,11 +9,11 @@ import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
  */
 class KeyboardInput extends React.Component {
   componentDidMount() {
-    document.addEventListener('keydown', this.handleKeyDown);
+    //document.addEventListener('keydown', this.handleKeyDown);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyDown);
+    //document.removeEventListener('keydown', this.handleKeyDown);
   }
 
   render() {
@@ -87,13 +87,13 @@ const calculatorDisplayStyles = StyleSheet.create({
     alignSelf: 'flex-end',
     color: 'white',
     //lineHeight: 130,
-    fontSize: '5.25em',
+    fontSize: 52.5,
     fontWeight: '100',
-    fontFamily: 'Roboto, sans-serif',
+    fontFamily: 'Roboto',
     paddingHorizontal: 30,
     //position: 'absolute',
-    right: 0,
-    transformOrigin: 'right'
+    //transformOrigin: 'right',
+    right: 0
   }
 });
 
@@ -119,19 +119,19 @@ class CalculatorKey extends React.Component {
 
 const calculatorKeyStyles = StyleSheet.create({
   root: {
-    width: 80,
-    height: 80,
     borderTopWidth: 1,
     borderTopColor: '#777',
-    borderTopStyle: 'solid',
+    //borderTopStyle: 'solid',
     borderRightWidth: 1,
     borderRightColor: '#666',
-    borderRightStyle: 'solid',
-    outline: 'none'
+    //borderRightStyle: 'solid',
+    //outline: 'none',
+    width: 80,
+    height: 80
   },
   text: {
     fontWeight: '100',
-    fontFamily: 'Roboto, sans-serif',
+    fontFamily: 'Roboto',
     lineHeight: 80,
     textAlign: 'center'
   }
@@ -311,6 +311,15 @@ class Calculator extends React.Component {
               </FunctionKey>
             </View>
             <View style={calculatorStyles.digitKeys}>
+              <DigitKey onPress={() => this.inputDigit(7)}>7</DigitKey>
+              <DigitKey onPress={() => this.inputDigit(8)}>8</DigitKey>
+              <DigitKey onPress={() => this.inputDigit(9)}>9</DigitKey>
+              <DigitKey onPress={() => this.inputDigit(4)}>4</DigitKey>
+              <DigitKey onPress={() => this.inputDigit(5)}>5</DigitKey>
+              <DigitKey onPress={() => this.inputDigit(6)}>6</DigitKey>
+              <DigitKey onPress={() => this.inputDigit(1)}>1</DigitKey>
+              <DigitKey onPress={() => this.inputDigit(2)}>2</DigitKey>
+              <DigitKey onPress={() => this.inputDigit(3)}>3</DigitKey>
               <DigitKey
                 onPress={() => this.inputDigit(0)}
                 style={calculatorStyles.key0}
@@ -325,15 +334,6 @@ class Calculator extends React.Component {
               >
                 .
               </DigitKey>
-              <DigitKey onPress={() => this.inputDigit(1)}>1</DigitKey>
-              <DigitKey onPress={() => this.inputDigit(2)}>2</DigitKey>
-              <DigitKey onPress={() => this.inputDigit(3)}>3</DigitKey>
-              <DigitKey onPress={() => this.inputDigit(4)}>4</DigitKey>
-              <DigitKey onPress={() => this.inputDigit(5)}>5</DigitKey>
-              <DigitKey onPress={() => this.inputDigit(6)}>6</DigitKey>
-              <DigitKey onPress={() => this.inputDigit(7)}>7</DigitKey>
-              <DigitKey onPress={() => this.inputDigit(8)}>8</DigitKey>
-              <DigitKey onPress={() => this.inputDigit(9)}>9</DigitKey>
             </View>
           </View>
           <View style={calculatorStyles.operatorKeys}>
@@ -378,7 +378,7 @@ const calculatorStyles = StyleSheet.create({
     width: 320,
     height: 520,
     backgroundColor: 'black',
-    boxShadow: '0px 0px 20px 0px #aaa'
+    //boxShadow: '0px 0px 20px 0px #aaa'
   },
   keypad: {
     height: 400,
@@ -388,39 +388,42 @@ const calculatorStyles = StyleSheet.create({
     width: 240
   },
   calculatorKeyText: {
-    fontFamily: 'Roboto, sans-serif',
-    fontSize: '1.75em',
+    fontFamily: 'Roboto',
+    fontSize: 17.5,
     fontWeight: '100'
   },
   functionKeys: {
-    backgroundImage: 'linear-gradient(to bottom, rgba(202,202,204,1) 0%, rgba(196,194,204,1) 100%)',
+    //backgroundImage: 'linear-gradient(to bottom, rgba(202,202,204,1) 0%, rgba(196,194,204,1) 100%)',
+    backgroundColor: 'rgba(196,194,204,1)',
     flexDirection: 'row'
   },
   functionKeyText: {
-    fontFamily: 'Roboto, sans-serif',
-    fontSize: '1.75em',
+    fontFamily: 'Roboto',
+    fontSize: 17.5,
     fontWeight: '100'
   },
   digitKeys: {
     backgroundColor: '#e0e0e7',
-    flexDirection: 'row',
-    flexWrap: 'wrap-reverse'
+    //flexWrap: 'wrap-reverse',
+    flexWrap: 'wrap',
+    flexDirection: 'row'
   },
   digitKeyText: {
-    fontFamily: 'Roboto, sans-serif',
-    fontSize: '2em',
+    fontFamily: 'Roboto',
+    fontSize: 20,
     fontWeight: '100'
   },
   operatorKeys: {
-    backgroundImage: 'linear-gradient(to bottom, rgba(252,156,23,1) 0%, rgba(247,126,27,1) 100%)'
+    //backgroundImage: 'linear-gradient(to bottom, rgba(252,156,23,1) 0%, rgba(247,126,27,1) 100%)'
+    backgroundColor: 'rgba(247,126,27,1)'
   },
   operatorKey: {
     borderRightWidth: 0
   },
   operatorKeyText: {
     color: 'white',
-    fontFamily: 'Roboto, sans-serif',
-    fontSize: '2.65em',
+    fontFamily: 'Roboto',
+    fontSize: 26.5,
     fontWeight: '100'
   },
   keyMultiplyText: {
@@ -434,8 +437,8 @@ const calculatorStyles = StyleSheet.create({
     overflow: 'hidden'
   },
   keyDotText: {
-    fontFamily: 'Roboto, sans-serif',
-    fontSize: '4.375em',
+    fontFamily: 'Roboto',
+    fontSize: 43.75,
     fontWeight: '100',
     marginTop: -10
   }

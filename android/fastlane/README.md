@@ -25,12 +25,17 @@ Runs all the tests
 ```
 fastlane android beta
 ```
-Submit a new Beta Build to Google Play
-### android deploy
+Bump version and submit a new BETA Build to Google Play
+### android prod
 ```
-fastlane android deploy
+fastlane android prod
 ```
-Deploy a new version to the Google Play
+Deploy (directly) the latest version to PROD in the Google Play
+### android promote
+```
+fastlane android promote
+```
+Promote the version in BETA to PROD in the Google Play
 
 ----
 

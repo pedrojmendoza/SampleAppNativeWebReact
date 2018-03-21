@@ -17,27 +17,36 @@ platform :android do
     gradle(task: "test")
   end
 
-  #desc "Submit a new Beta Build to Crashlytics Beta"
-  desc "Submit a new Beta Build to Google Play"
+  desc "Bump version and submit a new BETA Build to Google Play"
   lane :beta do
-    gradle(task: "clean assembleRelease")
-    supply(track: 'beta')
-    #crashlytics
-  end
-
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
     # Bump version code for uploading
     increment_version_code
 
     # Get all correct icon sizes from source
-    #android_appicon(
-    #  appicon_image_file: '../art/CalculatorIconMaster.png',
-    #  appicon_icon_types: [:launcher],
-    #  appicon_path: 'app/src/main/res/mipmap'
-    #)
+    android_appicon(
+      appicon_image_file: '../art/CalculatorIconMaster.png',
+      appicon_icon_types: [:launcher],
+      appicon_path: 'app/src/main/res/mipmap'
+    )
 
     gradle(task: "clean assembleRelease")
+    upload_to_play_store(track: 'beta')
+  end
+
+  desc "Deploy (directly) the latest version to PROD in the Google Play"
+  lane :prod do
+    gradle(task: "clean assembleRelease")
     upload_to_play_store
+  end
+
+  desc "Promote the version in BETA to PROD in the Google Play"
+  lane :promote do
+    upload_to_play_store(track: 'beta',
+      track_promote_to: 'production',
+      skip_upload_apk: true,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
   end
 end

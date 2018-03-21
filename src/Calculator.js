@@ -415,7 +415,7 @@ const calculatorStyles = StyleSheet.create({
   },
   operatorKeys: {
     //backgroundImage: 'linear-gradient(to bottom, rgba(252,156,23,1) 0%, rgba(247,126,27,1) 100%)'
-    backgroundColor: 'rgba(247,126,27,1)'
+    backgroundColor: 'rgba(255,255,0,1)'
   },
   operatorKey: {
     borderRightWidth: 0

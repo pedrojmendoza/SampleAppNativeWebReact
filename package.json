@@ -22,7 +22,8 @@
     "test": "npm run test-web && npm run test-native",
     "start": "react-native start",
     "beta:android": "cd ./android && fastlane beta",
-    "prod:android": "cd ./android && fastlane deploy"
+    "prod:android": "cd ./android && fastlane prod",
+    "promote:android": "cd ./android && fastlane promote"
   },
   "devDependencies": {
     "babel-plugin-react-native-web": "^0.5.3",

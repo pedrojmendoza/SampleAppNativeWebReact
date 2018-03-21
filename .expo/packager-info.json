@@ -1,8 +1,8 @@
 {
-  "expoServerPort": 19000,
-  "packagerPort": 19002,
-  "packagerPid": 11119,
-  "expoServerNgrokUrl": "https://4b-bxa.menpedro.my-native-web-app.exp.direct",
-  "packagerNgrokUrl": "https://packager.4b-bxa.menpedro.my-native-web-app.exp.direct",
-  "ngrokPid": 11130
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

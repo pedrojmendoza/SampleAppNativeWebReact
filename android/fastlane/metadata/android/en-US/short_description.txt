@@ -1,0 +1,1 @@
+Simple calculator based on React Native Web Samples
